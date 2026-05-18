@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    Playwright Automation | Md Shawon Ahmed
+  </title>
+
+
+  <!-- GOOGLE FONT -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+  <!-- FONT AWESOME -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+      font-family: 'Inter', sans-serif;
+
+      background: #050816;
+
+      color: white;
+
+      overflow-x: hidden;
+
+      transition: 0.4s;
+    }
+
+
+    body::before {
+      content: "";
+
+      position: fixed;
+
+      width: 500px;
+      height: 500px;
+
+      background: #00D9FF;
+
+      top: -150px;
+      right: -150px;
+
+      filter: blur(180px);
+
+      opacity: 0.12;
+
+      z-index: -1;
+    }
+
+
+    /* NAVBAR */
+
+    .navbar {
+      width: 100%;
+
+      padding: 25px 8%;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      position: sticky;
+      top: 0;
+
+      background: rgba(5, 8, 22, 0.8);
+
+      backdrop-filter: blur(10px);
+
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+      z-index: 1000;
+    }
+
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+
+      gap: 16px;
+    }
+
+
+    .logo {
+      font-size: 28px;
+
+      font-weight: 700;
+
+      color: #00D9FF;
+    }
+
+
+    .back-btn {
+      padding: 14px 28px;
+
+      border: none;
+
+      border-radius: 14px;
+
+      background: #00D9FF;
+
+      font-weight: 600;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+    }
+
+
+    .back-btn:hover {
+      transform: translateY(-4px);
+
+      box-shadow: 0 10px 25px rgba(0, 217, 255, 0.18);
+    }
+
+
+    /* THEME TOGGLE */
+
+    #theme-toggle {
+      width: 50px;
+      height: 50px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(255, 255, 255, 0.1);
+
+      background: rgba(255, 255, 255, 0.05);
+
+      color: white;
+
+      font-size: 20px;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+    }
+
+
+    #theme-toggle:hover {
+      transform: rotate(15deg);
+
+      border-color: #00D9FF;
+
+      box-shadow: 0 0 20px rgba(0, 217, 255, 0.25);
+    }
+
+
+    /* HERO */
+
+    .hero {
+      padding: 120px 8% 80px;
+
+      text-align: center;
+    }
+
+
+    .hero-tag {
+      display: inline-block;
+
+      padding: 10px 20px;
+
+      border-radius: 30px;
+
+      background: rgba(0, 217, 255, 0.1);
+
+      border: 1px solid rgba(0, 217, 255, 0.2);
+
+      color: #00D9FF;
+
+      margin-bottom: 30px;
+    }
+
+
+    .hero h1 {
+      font-size: 72px;
+
+      margin-bottom: 25px;
+
+      background: linear-gradient(to right,
+          #ffffff,
+          #00D9FF);
+
+      -webkit-background-clip: text;
+
+      -webkit-text-fill-color: transparent;
+    }
+
+
+    .hero p {
+      max-width: 850px;
+
+      margin: auto;
+
+      color: #94A3B8;
+
+      line-height: 1.9;
+
+      font-size: 18px;
+    }
+
+
+    /* SCREENSHOT */
+
+    .screenshot-section {
+      padding: 20px 8% 100px;
+    }
+
+
+    .screenshot-box {
+      height: 500px;
+
+      border-radius: 35px;
+
+      overflow: hidden;
+
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+
+    .screenshot-box img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+    }
+
+
+    /* INFO */
+
+    .info-section {
+      padding: 0 8% 120px;
+    }
+
+
+    .info-grid {
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 35px;
+    }
+
+
+    .info-card {
+      padding: 40px;
+
+      border-radius: 30px;
+
+      background: rgba(255, 255, 255, 0.03);
+
+      border: 1px solid rgba(255, 255, 255, 0.05);
+
+      transition: 0.4s;
+    }
+
+
+    .info-card:hover {
+      transform: translateY(-8px);
+
+      border-color: #00D9FF;
+
+      box-shadow: 0 15px 35px rgba(0, 217, 255, 0.08);
+    }
+
+
+    .info-card h2 {
+      font-size: 32px;
+
+      margin-bottom: 25px;
+    }
+
+
+    .info-card p {
+      color: #94A3B8;
+
+      line-height: 1.9;
+    }
+
+
+    /* LIST */
+
+    .feature-list li {
+      list-style: none;
+
+      margin-bottom: 18px;
+
+      display: flex;
+      align-items: center;
+
+      gap: 12px;
+
+      color: #CBD5E1;
+    }
+
+
+    .feature-list i {
+      color: #00D9FF;
+    }
+
+
+    /* TAGS */
+
+    .tags {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 15px;
+
+      margin-top: 30px;
+    }
+
+
+    .tags span {
+      padding: 12px 20px;
+
+      border-radius: 30px;
+
+      background: rgba(255, 255, 255, 0.04);
+
+      border: 1px solid rgba(255, 255, 255, 0.08);
+
+      color: #CBD5E1;
+    }
+
+
+    /* TEST CASE SECTION */
+
+    .test-section {
+      padding: 0 8% 120px;
+    }
+
+
+    .test-card {
+      padding: 45px;
+
+      border-radius: 35px;
+
+      background: rgba(255, 255, 255, 0.03);
+
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+
+    .test-card h2 {
+      font-size: 40px;
+
+      margin-bottom: 35px;
+    }
+
+
+    .test-item {
+      padding: 30px;
+
+      border-radius: 25px;
+
+      background: rgba(255, 255, 255, 0.03);
+
+      margin-bottom: 25px;
+    }
+
+
+    .test-item h3 {
+      margin-bottom: 20px;
+
+      color: #00D9FF;
+    }
+
+
+    .test-item p {
+      color: #94A3B8;
+
+      line-height: 1.9;
+    }
+
+
+    /* BUTTONS */
+
+    .buttons {
+      padding: 0 8% 120px;
+
+      display: flex;
+
+      gap: 25px;
+
+      justify-content: center;
+    }
+
+
+    .primary-btn,
+    .secondary-btn {
+      padding: 18px 36px;
+
+      border-radius: 16px;
+
+      font-size: 16px;
+
+      font-weight: 600;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+    }
+
+
+    .primary-btn {
+      border: none;
+
+      background: #00D9FF;
+    }
+
+
+    .secondary-btn {
+      background: transparent;
+
+      border: 1px solid #00D9FF;
+
+      color: white;
+    }
+
+
+    .primary-btn:hover,
+    .secondary-btn:hover {
+      transform: translateY(-5px);
+
+      box-shadow: 0 12px 30px rgba(0, 217, 255, 0.18);
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+      padding: 50px 8%;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+      text-align: center;
+    }
+
+
+    .footer h3 {
+      font-size: 28px;
+
+      margin-bottom: 15px;
+    }
+
+
+    .footer p {
+      color: #94A3B8;
+    }
+
+
+    /* LIGHT MODE */
+
+    body.light-mode {
+      background: #F8FAFC;
+
+      color: #0F172A;
+    }
+
+
+    body.light-mode .navbar {
+      background: rgba(255, 255, 255, 0.8);
+
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+
+    body.light-mode .info-card,
+    body.light-mode .test-card,
+    body.light-mode .test-item {
+      background: white;
+
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+
+    body.light-mode p {
+      color: #475569;
+    }
+
+
+    body.light-mode .secondary-btn {
+      color: #0F172A;
+    }
+
+
+    body.light-mode .tags span {
+      color: #334155;
+    }
+
+
+    body.light-mode #theme-toggle {
+      color: #0F172A;
+    }
+
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px) {
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .hero h1 {
+        font-size: 52px;
+      }
+
+    }
+
+
+    @media(max-width:768px) {
+
+      .navbar {
+        flex-direction: column;
+
+        gap: 20px;
+      }
+
+
+      .buttons {
+        flex-direction: column;
+      }
+
+
+      .screenshot-box {
+        height: 350px;
+      }
+
+    }
+
+
+    @media(max-width:500px) {
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+
+      .info-card,
+      .test-card {
+        padding: 30px;
+      }
+
+    }
+
+    .view-project {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 14px 28px;
+
+      border-radius: 12px;
+
+      background: rgba(0, 217, 255, 0.08);
+
+      border: 1px solid #00D9FF;
+
+      color: #00D9FF;
+
+      text-decoration: none;
+
+      font-size: 15px;
+
+      font-weight: 600;
+
+      cursor: pointer;
+
+      transition: all 0.3s ease;
+
+      gap: 8px;
+
+    }
+
+
+    .view-project:hover {
+
+      transform: translateY(-4px);
+
+      background: #00D9FF;
+
+      color: black;
+
+      box-shadow: 0 10px 25px rgba(0, 217, 255, 0.25);
+
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+  <!-- NAVBAR -->
+
+  <nav class="navbar">
+
+    <div class="logo">
+      SA
+    </div>
+
+
+    <div class="nav-right">
+
+      <button id="theme-toggle">
+        🌙
+      </button>
+
+
+      <button class="back-btn" onclick="window.location.href='index.html#projects'">
+
+        Back To Projects
+
+      </button>
+
+    </div>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <span class="hero-tag">
+      PLAYWRIGHT AUTOMATION
+    </span>
+
+
+    <h1>
+      Playwright Automation Testing
+    </h1>
+
+
+    <p>
+      Professional automation testing project
+      focused on UI validation,
+      login workflow testing,
+      end-to-end automation,
+      and modern QA automation practices
+      using Playwright and JavaScript.
+    </p>
+
+  </section>
+
+
+  <!-- SCREENSHOT -->
+
+  <section class="screenshot-section">
+
+    <div class="screenshot-box">
+
+      <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1400&auto=format&fit=crop"
+        alt="Automation Testing">
+
+    </div>
+
+  </section>
+
+
+  <!-- INFO -->
+
+  <section class="info-section">
+
+    <div class="info-grid">
+
+
+      <!-- OVERVIEW -->
+
+      <div class="info-card">
+
+        <h2>
+          Project Overview
+        </h2>
+
+
+        <p>
+          This automation testing project
+          demonstrates Playwright-based
+          testing workflows
+          for validating user interfaces,
+          forms,
+          login systems,
+          and complete user journeys.
+        </p>
+
+
+        <div class="tags">
+
+          <span>Playwright</span>
+          <span>Automation</span>
+          <span>JavaScript</span>
+          <span>QA</span>
+
+        </div>
+
+      </div>
+
+
+      <!-- AUTOMATION FLOW -->
+
+      <div class="info-card">
+
+        <h2>
+          Automation Coverage
+        </h2>
+
+
+        <ul class="feature-list">
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            Login automation testing
+          </li>
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            Form validation automation
+          </li>
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            UI element verification
+          </li>
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            End-to-end workflow testing
+          </li>
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            Browser interaction testing
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- TOOLS -->
+
+      <div class="info-card">
+
+        <h2>
+          Tools & Technologies
+        </h2>
+
+
+        <ul class="feature-list">
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            Playwright
+          </li>
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            JavaScript
+          </li>
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            VS Code
+          </li>
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            QA Documentation
+          </li>
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            Chrome DevTools
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- OBJECTIVE -->
+
+      <div class="info-card">
+
+        <h2>
+          Project Objective
+        </h2>
+
+
+        <p>
+          The objective of this project
+          was to improve automation testing skills,
+          understand real-world testing workflows,
+          and build scalable QA automation knowledge
+          for modern software products.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- TEST CASES -->
+
+  <section class="test-section">
+
+    <div class="test-card">
+
+      <h2>
+        Automation Test Cases
+      </h2>
+
+
+      <div class="test-item">
+
+        <h3>
+          TEST CASE #01 — Login Workflow
+        </h3>
+
+
+        <p>
+          Automated validation for
+          user login functionality
+          including valid credentials,
+          invalid credentials,
+          empty field validation,
+          and authentication behavior.
+        </p>
+
+      </div>
+
+
+      <div class="test-item">
+
+        <h3>
+          TEST CASE #02 — Form Validation
+        </h3>
+
+
+        <p>
+          Automated testing for
+          registration form validation,
+          required field checks,
+          error message verification,
+          and successful form submission.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- BUTTONS -->
+
+  <section class="buttons">
+
+    <a href="https://github.com/shawon-sqa/playwright-automation-testing" target="_blank" class="view-project">
+
+      <i class="fa-brands fa-github"></i>
+
+      GitHub Repository
+
+    </a>
+
+
+    <button class="secondary-btn">
+
+      View Automation Code
+
+    </button>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+
+    <h3>
+      Md Shawon Ahmed
+    </h3>
+
+
+    <p>
+      QA Engineer | Automation Testing | API Testing | AI Testing
+    </p>
+
+  </footer>
+
+
+  <!-- SCRIPT -->
+
+  <script>
+
+    const themeToggle =
+      document.getElementById("theme-toggle");
+
+
+    themeToggle.addEventListener("click", () => {
+
+      document.body.classList.toggle("light-mode");
+
+
+      if (document.body.classList.contains("light-mode")) {
+
+        themeToggle.innerHTML = "☀️";
+
+      }
+
+      else {
+
+        themeToggle.innerHTML = "🌙";
+
+      }
+
+    });
+
+  </script>
+
+
+</body>
+
+</html>

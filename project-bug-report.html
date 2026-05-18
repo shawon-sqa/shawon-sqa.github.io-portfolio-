@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
+
+  <title>
+    Bug Report Samples | Md Shawon Ahmed
+  </title>
+
+
+  <!-- GOOGLE FONT -->
+
+  <link rel="preconnect"
+  href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+  rel="stylesheet">
+
+
+  <!-- FONT AWESOME -->
+
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+
+    body{
+      font-family:'Inter',sans-serif;
+
+      background:#050816;
+
+      color:white;
+
+      overflow-x:hidden;
+
+      transition:0.4s;
+    }
+
+
+    body::before{
+      content:"";
+
+      position:fixed;
+
+      width:500px;
+      height:500px;
+
+      background:#00D9FF;
+
+      top:-150px;
+      right:-150px;
+
+      filter:blur(180px);
+
+      opacity:0.12;
+
+      z-index:-1;
+    }
+
+
+    /* NAVBAR */
+
+    .navbar{
+      width:100%;
+
+      padding:25px 8%;
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      position:sticky;
+      top:0;
+
+      background:rgba(5,8,22,0.8);
+
+      backdrop-filter:blur(10px);
+
+      border-bottom:1px solid rgba(255,255,255,0.05);
+
+      z-index:1000;
+    }
+
+
+    .logo{
+      font-size:28px;
+
+      font-weight:700;
+
+      color:#00D9FF;
+    }
+
+
+    .nav-right{
+      display:flex;
+      align-items:center;
+
+      gap:16px;
+    }
+
+
+    /* BUTTONS */
+
+    #theme-toggle{
+      width:50px;
+      height:50px;
+
+      border-radius:50%;
+
+      border:1px solid rgba(255,255,255,0.1);
+
+      background:rgba(255,255,255,0.05);
+
+      color:white;
+
+      font-size:20px;
+
+      cursor:pointer;
+
+      transition:0.3s;
+    }
+
+
+    #theme-toggle:hover{
+      transform:rotate(15deg);
+
+      border-color:#00D9FF;
+
+      box-shadow:0 0 20px rgba(0,217,255,0.25);
+    }
+
+
+    .back-btn{
+      padding:14px 28px;
+
+      border:none;
+
+      border-radius:14px;
+
+      background:#00D9FF;
+
+      font-weight:600;
+
+      cursor:pointer;
+
+      transition:0.3s;
+    }
+
+
+    .back-btn:hover{
+      transform:translateY(-4px);
+
+      box-shadow:0 10px 25px rgba(0,217,255,0.18);
+    }
+
+
+    /* HERO */
+
+    .hero{
+      padding:120px 8% 80px;
+
+      text-align:center;
+    }
+
+
+    .hero-tag{
+      display:inline-block;
+
+      padding:10px 20px;
+
+      border-radius:30px;
+
+      background:rgba(0,217,255,0.1);
+
+      border:1px solid rgba(0,217,255,0.2);
+
+      color:#00D9FF;
+
+      margin-bottom:30px;
+    }
+
+
+    .hero h1{
+      font-size:72px;
+
+      margin-bottom:25px;
+
+      background:linear-gradient(
+      to right,
+      #ffffff,
+      #00D9FF
+      );
+
+      -webkit-background-clip:text;
+
+      -webkit-text-fill-color:transparent;
+    }
+
+
+    .hero p{
+      max-width:850px;
+
+      margin:auto;
+
+      color:#94A3B8;
+
+      line-height:1.9;
+
+      font-size:18px;
+    }
+
+
+    /* BUG SECTION */
+
+    .bug-section{
+      padding:0 8% 120px;
+    }
+
+
+    .bug-grid{
+      display:grid;
+
+      grid-template-columns:repeat(2,1fr);
+
+      gap:35px;
+    }
+
+
+    .bug-card{
+      background:rgba(255,255,255,0.03);
+
+      border:1px solid rgba(255,255,255,0.05);
+
+      border-radius:30px;
+
+      padding:40px;
+
+      transition:0.4s;
+    }
+
+
+    .bug-card:hover{
+      transform:translateY(-8px);
+
+      border-color:#00D9FF;
+
+      box-shadow:0 15px 35px rgba(0,217,255,0.08);
+    }
+
+
+    .bug-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      margin-bottom:25px;
+    }
+
+
+    .bug-id{
+      font-size:15px;
+
+      color:#00D9FF;
+
+      font-weight:600;
+    }
+
+
+    .severity{
+      padding:8px 16px;
+
+      border-radius:30px;
+
+      font-size:13px;
+
+      font-weight:600;
+    }
+
+
+    .high{
+      background:rgba(239,68,68,0.15);
+
+      color:#EF4444;
+    }
+
+
+    .medium{
+      background:rgba(245,158,11,0.15);
+
+      color:#F59E0B;
+    }
+
+
+    .low{
+      background:rgba(34,197,94,0.15);
+
+      color:#22C55E;
+    }
+
+
+    .bug-card h2{
+      font-size:30px;
+
+      margin-bottom:22px;
+    }
+
+
+    .bug-card p{
+      color:#94A3B8;
+
+      line-height:1.9;
+
+      margin-bottom:25px;
+    }
+
+
+    /* DETAILS */
+
+    .details{
+      margin-bottom:30px;
+    }
+
+
+    .details li{
+      list-style:none;
+
+      margin-bottom:15px;
+
+      color:#CBD5E1;
+
+      display:flex;
+
+      gap:12px;
+    }
+
+
+    .details i{
+      color:#00D9FF;
+    }
+
+
+    /* BUTTON */
+
+    .view-btn{
+      width:100%;
+
+      padding:16px;
+
+      border:none;
+
+      border-radius:16px;
+
+      background:#00D9FF;
+
+      font-size:15px;
+
+      font-weight:600;
+
+      cursor:pointer;
+
+      transition:0.3s;
+    }
+
+
+    .view-btn:hover{
+      transform:translateY(-4px);
+
+      box-shadow:0 10px 25px rgba(0,217,255,0.18);
+    }
+
+
+    /* FOOTER */
+
+    .footer{
+      padding:50px 8%;
+
+      border-top:1px solid rgba(255,255,255,0.05);
+
+      text-align:center;
+    }
+
+
+    .footer h3{
+      font-size:28px;
+
+      margin-bottom:15px;
+    }
+
+
+    .footer p{
+      color:#94A3B8;
+    }
+
+
+    /* LIGHT MODE */
+
+    body.light-mode{
+      background:#F8FAFC;
+
+      color:#0F172A;
+    }
+
+
+    body.light-mode .navbar{
+      background:rgba(255,255,255,0.8);
+
+      border-bottom:1px solid rgba(0,0,0,0.05);
+    }
+
+
+    body.light-mode .bug-card{
+      background:white;
+
+      border:1px solid rgba(0,0,0,0.05);
+    }
+
+
+    body.light-mode .bug-card p,
+    body.light-mode .footer p{
+      color:#475569;
+    }
+
+
+    body.light-mode .details li{
+      color:#334155;
+    }
+
+
+    body.light-mode #theme-toggle{
+      color:#0F172A;
+    }
+
+
+    /* RESPONSIVE */
+
+    @media(max-width:950px){
+
+      .bug-grid{
+        grid-template-columns:1fr;
+      }
+
+    }
+
+
+    @media(max-width:768px){
+
+      .navbar{
+        flex-direction:column;
+
+        gap:20px;
+      }
+
+
+      .hero h1{
+        font-size:50px;
+      }
+
+    }
+
+
+    @media(max-width:500px){
+
+      .hero h1{
+        font-size:38px;
+      }
+
+
+      .bug-card{
+        padding:30px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+
+  <!-- NAVBAR -->
+
+  <nav class="navbar">
+
+    <div class="logo">
+      SA
+    </div>
+
+
+    <div class="nav-right">
+
+      <button id="theme-toggle">
+        🌙
+      </button>
+
+
+      <button class="back-btn"
+      onclick="window.location.href='index.html#projects'">
+
+        Back To Projects
+
+      </button>
+
+    </div>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <span class="hero-tag">
+      BUG REPORTING PORTFOLIO
+    </span>
+
+
+    <h1>
+      Professional Bug Report Samples
+    </h1>
+
+
+    <p>
+      Structured QA bug reports
+      demonstrating issue analysis,
+      severity classification,
+      reproduction steps,
+      expected vs actual results,
+      and professional software quality assurance documentation.
+    </p>
+
+  </section>
+
+
+  <!-- BUG REPORTS -->
+
+  <section class="bug-section">
+
+    <div class="bug-grid">
+
+
+      <!-- BUG 1 -->
+
+      <div class="bug-card">
+
+        <div class="bug-header">
+
+          <span class="bug-id">
+            BUG-001
+          </span>
+
+
+          <span class="severity high">
+            HIGH
+          </span>
+
+        </div>
+
+
+        <h2>
+          Login Authentication Failure
+        </h2>
+
+
+        <p>
+          The application allows users
+          to access dashboard pages
+          even after session expiration,
+          creating a potential security issue.
+        </p>
+
+
+        <ul class="details">
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Module: Authentication
+          </li>
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Priority: Critical
+          </li>
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Environment: Production
+          </li>
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Status: Reported
+          </li>
+
+        </ul>
+
+
+        <button class="view-btn">
+
+          View Full Report
+
+        </button>
+
+      </div>
+
+
+      <!-- BUG 2 -->
+
+      <div class="bug-card">
+
+        <div class="bug-header">
+
+          <span class="bug-id">
+            BUG-002
+          </span>
+
+
+          <span class="severity medium">
+            MEDIUM
+          </span>
+
+        </div>
+
+
+        <h2>
+          Invalid Form Validation
+        </h2>
+
+
+        <p>
+          Registration form accepts
+          empty required fields
+          and allows incomplete submissions
+          without displaying validation messages.
+        </p>
+
+
+        <ul class="details">
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Module: Registration Form
+          </li>
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Priority: Medium
+          </li>
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Environment: Staging
+          </li>
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Status: Open
+          </li>
+
+        </ul>
+
+
+        <button class="view-btn">
+
+          View Full Report
+
+        </button>
+
+      </div>
+
+
+      <!-- BUG 3 -->
+
+      <div class="bug-card">
+
+        <div class="bug-header">
+
+          <span class="bug-id">
+            BUG-003
+          </span>
+
+
+          <span class="severity low">
+            LOW
+          </span>
+
+        </div>
+
+
+        <h2>
+          UI Alignment Issue
+        </h2>
+
+
+        <p>
+          Dashboard cards become misaligned
+          on smaller mobile devices,
+          affecting visual consistency
+          and responsive layout experience.
+        </p>
+
+
+        <ul class="details">
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Module: Dashboard UI
+          </li>
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Priority: Low
+          </li>
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Environment: Mobile View
+          </li>
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Status: In Review
+          </li>
+
+        </ul>
+
+
+        <button class="view-btn">
+
+          View Full Report
+
+        </button>
+
+      </div>
+
+
+      <!-- BUG 4 -->
+
+      <div class="bug-card">
+
+        <div class="bug-header">
+
+          <span class="bug-id">
+            BUG-004
+          </span>
+
+
+          <span class="severity high">
+            HIGH
+          </span>
+
+        </div>
+
+
+        <h2>
+          API Response Data Mismatch
+        </h2>
+
+
+        <p>
+          API response returns incorrect user profile data
+          after profile updates,
+          causing inconsistent frontend display behavior.
+        </p>
+
+
+        <ul class="details">
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Module: User Profile API
+          </li>
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Priority: High
+          </li>
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Environment: QA Server
+          </li>
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Status: Investigating
+          </li>
+
+        </ul>
+
+
+        <button class="view-btn">
+
+          View Full Report
+
+        </button>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+
+    <h3>
+      Md Shawon Ahmed
+    </h3>
+
+
+    <p>
+      QA Engineer | Bug Reporting | API Testing | Automation Testing
+    </p>
+
+  </footer>
+
+
+  <!-- SCRIPT -->
+
+  <script>
+
+    const themeToggle =
+    document.getElementById("theme-toggle");
+
+
+    themeToggle.addEventListener("click",()=>{
+
+      document.body.classList.toggle("light-mode");
+
+
+      if(document.body.classList.contains("light-mode")){
+
+        themeToggle.innerHTML = "☀️";
+
+      }
+
+      else{
+
+        themeToggle.innerHTML = "🌙";
+
+      }
+
+    });
+
+  </script>
+
+
+</body>
+
+</html>

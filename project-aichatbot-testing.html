@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    AI Chatbot Testing | Md Shawon Ahmed
+  </title>
+
+
+  <!-- GOOGLE FONT -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+  <!-- FONT AWESOME -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+      font-family: 'Inter', sans-serif;
+
+      background: #050816;
+
+      color: white;
+
+      overflow-x: hidden;
+
+      transition: 0.4s;
+    }
+
+
+    body::before {
+      content: "";
+
+      position: fixed;
+
+      width: 500px;
+      height: 500px;
+
+      background: #00D9FF;
+
+      top: -150px;
+      right: -150px;
+
+      filter: blur(180px);
+
+      opacity: 0.12;
+
+      z-index: -1;
+    }
+
+
+    /* NAVBAR */
+
+    .navbar {
+      width: 100%;
+
+      padding: 25px 8%;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      position: sticky;
+      top: 0;
+
+      background: rgba(5, 8, 22, 0.8);
+
+      backdrop-filter: blur(10px);
+
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+      z-index: 1000;
+    }
+
+
+    .logo {
+      font-size: 28px;
+
+      font-weight: 700;
+
+      color: #00D9FF;
+    }
+
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+
+      gap: 16px;
+    }
+
+
+    /* BUTTONS */
+
+    #theme-toggle {
+      width: 50px;
+      height: 50px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(255, 255, 255, 0.1);
+
+      background: rgba(255, 255, 255, 0.05);
+
+      color: white;
+
+      font-size: 20px;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+    }
+
+
+    #theme-toggle:hover {
+      transform: rotate(15deg);
+
+      border-color: #00D9FF;
+
+      box-shadow: 0 0 20px rgba(0, 217, 255, 0.25);
+    }
+
+
+    .back-btn {
+      padding: 14px 28px;
+
+      border: none;
+
+      border-radius: 14px;
+
+      background: #00D9FF;
+
+      font-weight: 600;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+    }
+
+
+    .back-btn:hover {
+      transform: translateY(-4px);
+
+      box-shadow: 0 10px 25px rgba(0, 217, 255, 0.18);
+    }
+
+
+    /* HERO */
+
+    .hero {
+      padding: 120px 8% 80px;
+
+      text-align: center;
+    }
+
+
+    .hero-tag {
+      display: inline-block;
+
+      padding: 10px 20px;
+
+      border-radius: 30px;
+
+      background: rgba(0, 217, 255, 0.1);
+
+      border: 1px solid rgba(0, 217, 255, 0.2);
+
+      color: #00D9FF;
+
+      margin-bottom: 30px;
+    }
+
+
+    .hero h1 {
+      font-size: 72px;
+
+      margin-bottom: 25px;
+
+      background: linear-gradient(to right,
+          #ffffff,
+          #00D9FF);
+
+      -webkit-background-clip: text;
+
+      -webkit-text-fill-color: transparent;
+    }
+
+
+    .hero p {
+      max-width: 850px;
+
+      margin: auto;
+
+      color: #94A3B8;
+
+      line-height: 1.9;
+
+      font-size: 18px;
+    }
+
+
+    /* IMAGE */
+
+    .image-section {
+      padding: 20px 8% 100px;
+    }
+
+
+    .image-box {
+      height: 500px;
+
+      border-radius: 35px;
+
+      overflow: hidden;
+
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+
+    .image-box img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+    }
+
+
+    /* INFO */
+
+    .info-section {
+      padding: 0 8% 120px;
+    }
+
+
+    .info-grid {
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 35px;
+    }
+
+
+    .info-card {
+      padding: 40px;
+
+      border-radius: 30px;
+
+      background: rgba(255, 255, 255, 0.03);
+
+      border: 1px solid rgba(255, 255, 255, 0.05);
+
+      transition: 0.4s;
+    }
+
+
+    .info-card:hover {
+      transform: translateY(-8px);
+
+      border-color: #00D9FF;
+
+      box-shadow: 0 15px 35px rgba(0, 217, 255, 0.08);
+    }
+
+
+    .info-card h2 {
+      font-size: 32px;
+
+      margin-bottom: 25px;
+    }
+
+
+    .info-card p {
+      color: #94A3B8;
+
+      line-height: 1.9;
+    }
+
+
+    /* LIST */
+
+    .feature-list li {
+      list-style: none;
+
+      margin-bottom: 18px;
+
+      display: flex;
+      align-items: center;
+
+      gap: 12px;
+
+      color: #CBD5E1;
+    }
+
+
+    .feature-list i {
+      color: #00D9FF;
+    }
+
+
+    /* TAGS */
+
+    .tags {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 15px;
+
+      margin-top: 30px;
+    }
+
+
+    .tags span {
+      padding: 12px 20px;
+
+      border-radius: 30px;
+
+      background: rgba(255, 255, 255, 0.04);
+
+      border: 1px solid rgba(255, 255, 255, 0.08);
+
+      color: #CBD5E1;
+    }
+
+
+    /* TEST SECTION */
+
+    .test-section {
+      padding: 0 8% 120px;
+    }
+
+
+    .test-card {
+      padding: 45px;
+
+      border-radius: 35px;
+
+      background: rgba(255, 255, 255, 0.03);
+
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+
+    .test-card h2 {
+      font-size: 40px;
+
+      margin-bottom: 35px;
+    }
+
+
+    .test-item {
+      padding: 30px;
+
+      border-radius: 25px;
+
+      background: rgba(255, 255, 255, 0.03);
+
+      margin-bottom: 25px;
+    }
+
+
+    .test-item h3 {
+      margin-bottom: 20px;
+
+      color: #00D9FF;
+    }
+
+
+    .test-item p {
+      color: #94A3B8;
+
+      line-height: 1.9;
+    }
+
+
+    /* BUTTONS */
+
+    .buttons {
+      padding: 0 8% 120px;
+
+      display: flex;
+
+      gap: 25px;
+
+      justify-content: center;
+    }
+
+
+    .primary-btn,
+    .secondary-btn {
+      padding: 18px 36px;
+
+      border-radius: 16px;
+
+      font-size: 16px;
+
+      font-weight: 600;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+
+    }
+
+
+    .primary-btn {
+      border: none;
+
+      background: #00D9FF;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+
+    .secondary-btn {
+      background: transparent;
+
+      border: 1px solid #00D9FF;
+
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+
+    .primary-btn:hover,
+    .secondary-btn:hover {
+      transform: translateY(-5px);
+
+      box-shadow: 0 12px 30px rgba(0, 217, 255, 0.18);
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+      padding: 50px 8%;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+      text-align: center;
+    }
+
+
+    .footer h3 {
+      font-size: 28px;
+
+      margin-bottom: 15px;
+    }
+
+
+    .footer p {
+      color: #94A3B8;
+    }
+
+
+    /* LIGHT MODE */
+
+    body.light-mode {
+      background: #F8FAFC;
+
+      color: #0F172A;
+    }
+
+
+    body.light-mode .navbar {
+      background: rgba(255, 255, 255, 0.8);
+
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+
+    body.light-mode .info-card,
+    body.light-mode .test-card,
+    body.light-mode .test-item {
+      background: white;
+
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+
+    body.light-mode p {
+      color: #475569;
+    }
+
+
+    body.light-mode .secondary-btn {
+      color: #0F172A;
+    }
+
+
+    body.light-mode .tags span {
+      color: #334155;
+    }
+
+
+    body.light-mode #theme-toggle {
+      color: #0F172A;
+    }
+
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px) {
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .hero h1 {
+        font-size: 52px;
+      }
+
+    }
+
+
+    @media(max-width:768px) {
+
+      .navbar {
+        flex-direction: column;
+
+        gap: 20px;
+      }
+
+
+      .buttons {
+        flex-direction: column;
+      }
+
+
+      .image-box {
+        height: 350px;
+      }
+
+    }
+
+
+    @media(max-width:500px) {
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+
+      .info-card,
+      .test-card {
+        padding: 30px;
+      }
+
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+  <!-- NAVBAR -->
+
+  <nav class="navbar">
+
+    <div class="logo">
+      SA
+    </div>
+
+
+    <div class="nav-right">
+
+      <button id="theme-toggle">
+        🌙
+      </button>
+
+
+      <button class="back-btn" onclick="window.location.href='index.html#projects'">
+
+        Back To Projects
+
+      </button>
+
+    </div>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <span class="hero-tag">
+      AI CHATBOT TESTING
+    </span>
+
+
+    <h1>
+      AI Chatbot Testing Project
+    </h1>
+
+
+    <p>
+      Professional AI testing project
+      focused on prompt validation,
+      hallucination detection,
+      response consistency,
+      conversational flow testing,
+      and AI behavior quality assurance.
+    </p>
+
+  </section>
+
+
+  <!-- IMAGE -->
+
+  <section class="image-section">
+
+    <div class="image-box">
+
+      <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1400&auto=format&fit=crop"
+        alt="AI Chatbot Testing">
+
+    </div>
+
+  </section>
+
+
+  <!-- INFO -->
+
+  <section class="info-section">
+
+    <div class="info-grid">
+
+
+      <!-- OVERVIEW -->
+
+      <div class="info-card">
+
+        <h2>
+          Project Overview
+        </h2>
+
+
+        <p>
+          This project demonstrates
+          AI chatbot testing workflows
+          for validating chatbot responses,
+          conversational accuracy,
+          prompt behavior,
+          and AI-generated output quality.
+        </p>
+
+
+        <div class="tags">
+
+          <span>AI Testing</span>
+          <span>Prompt QA</span>
+          <span>Chatbot</span>
+          <span>QA</span>
+
+        </div>
+
+      </div>
+
+
+      <!-- TESTING COVERAGE -->
+
+      <div class="info-card">
+
+        <h2>
+          Testing Coverage
+        </h2>
+
+
+        <ul class="feature-list">
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            Prompt validation testing
+          </li>
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            Hallucination detection
+          </li>
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            Context retention testing
+          </li>
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            Response consistency checks
+          </li>
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            Conversational flow validation
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- TOOLS -->
+
+      <div class="info-card">
+
+        <h2>
+          Tools & Methods
+        </h2>
+
+
+        <ul class="feature-list">
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            ChatGPT
+          </li>
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            AI Prompt Testing
+          </li>
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            QA Documentation
+          </li>
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            Edge Case Validation
+          </li>
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            Conversational Testing
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- OBJECTIVE -->
+
+      <div class="info-card">
+
+        <h2>
+          Project Objective
+        </h2>
+
+
+        <p>
+          The objective of this project
+          was to understand AI testing workflows,
+          validate conversational AI systems,
+          improve prompt engineering knowledge,
+          and explore real-world AI QA practices.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- TEST CASES -->
+
+  <section class="test-section">
+
+    <div class="test-card">
+
+      <h2>
+        AI Test Scenarios
+      </h2>
+
+
+      <div class="test-item">
+
+        <h3>
+          TEST SCENARIO #01 — Hallucination Detection
+        </h3>
+
+
+        <p>
+          Tested AI-generated responses
+          against incorrect factual prompts
+          to validate hallucination handling,
+          misinformation generation,
+          and response accuracy behavior.
+        </p>
+
+      </div>
+
+
+      <div class="test-item">
+
+        <h3>
+          TEST SCENARIO #02 — Context Retention
+        </h3>
+
+
+        <p>
+          Validated chatbot capability
+          to retain conversational memory,
+          maintain logical flow,
+          and respond consistently
+          across long conversations.
+        </p>
+
+      </div>
+
+
+      <div class="test-item">
+
+        <h3>
+          TEST SCENARIO #03 — Prompt Injection Testing
+        </h3>
+
+
+        <p>
+          Tested chatbot security behavior
+          using prompt injection techniques
+          to identify unsafe outputs,
+          instruction bypass issues,
+          and response vulnerabilities.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- BUTTONS -->
+
+  <section class="buttons">
+
+    <a href="ai-test-cases.html" class="primary-btn">
+
+      View AI Test Cases
+
+    </a>
+
+<a href="ai-bug-reports.html"
+class="secondary-btn">
+
+AI Bug Reports
+
+</a>
+    <a href="ai-prompt-testing.html" class="secondary-btn">
+
+      Prompt Testing Samples
+
+    </a>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+
+    <h3>
+      Md Shawon Ahmed
+    </h3>
+
+
+    <p>
+      QA Engineer | AI Testing | Automation | API Testing
+    </p>
+
+  </footer>
+
+
+  <!-- SCRIPT -->
+
+  <script>
+
+    const themeToggle =
+      document.getElementById("theme-toggle");
+
+
+    themeToggle.addEventListener("click", () => {
+
+      document.body.classList.toggle("light-mode");
+
+
+      if (document.body.classList.contains("light-mode")) {
+
+        themeToggle.innerHTML = "☀️";
+
+      }
+
+      else {
+
+        themeToggle.innerHTML = "🌙";
+
+      }
+
+    });
+
+  </script>
+
+
+</body>
+
+</html>

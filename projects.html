@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    QA Projects | Md Shawon Ahmed
+  </title>
+
+
+  <!-- GOOGLE FONT -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+  <!-- FONT AWESOME -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+      font-family: 'Inter', sans-serif;
+
+      background: #050816;
+
+      color: white;
+
+      overflow-x: hidden;
+
+      transition: 0.4s;
+    }
+
+
+    body::before {
+      content: "";
+
+      position: fixed;
+
+      width: 500px;
+      height: 500px;
+
+      background: #00D9FF;
+
+      top: -150px;
+      right: -150px;
+
+      filter: blur(180px);
+
+      opacity: 0.12;
+
+      z-index: -1;
+    }
+
+
+    /* NAVBAR */
+
+    .navbar {
+      width: 100%;
+
+      padding: 25px 8%;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      position: sticky;
+      top: 0;
+
+      background: rgba(5, 8, 22, 0.8);
+
+      backdrop-filter: blur(12px);
+
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+      z-index: 1000;
+    }
+
+
+    .logo {
+      font-size: 28px;
+
+      font-weight: 700;
+
+      color: #00D9FF;
+    }
+
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+
+      gap: 16px;
+    }
+
+
+    /* THEME BUTTON */
+
+    #theme-toggle {
+      width: 50px;
+      height: 50px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(255, 255, 255, 0.1);
+
+      background: rgba(255, 255, 255, 0.05);
+
+      color: white;
+
+      font-size: 20px;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+    }
+
+
+    #theme-toggle:hover {
+      transform: rotate(15deg);
+
+      border-color: #00D9FF;
+
+      box-shadow: 0 0 20px rgba(0, 217, 255, 0.25);
+    }
+
+
+    /* BACK BUTTON */
+
+    .back-btn {
+      padding: 14px 26px;
+
+      border: none;
+
+      border-radius: 14px;
+
+      background: #00D9FF;
+
+      font-weight: 600;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+    }
+
+
+    .back-btn:hover {
+      transform: translateY(-4px);
+
+      box-shadow: 0 10px 25px rgba(0, 217, 255, 0.18);
+    }
+
+
+    /* HERO */
+
+    .hero {
+      padding: 120px 8% 90px;
+
+      text-align: center;
+    }
+
+
+    .hero-badge {
+      display: inline-block;
+
+      padding: 10px 22px;
+
+      border-radius: 30px;
+
+      background: rgba(0, 217, 255, 0.1);
+
+      border: 1px solid rgba(0, 217, 255, 0.2);
+
+      color: #00D9FF;
+
+      margin-bottom: 30px;
+    }
+
+
+    .hero h1 {
+      font-size: 72px;
+
+      line-height: 1.2;
+
+      margin-bottom: 28px;
+
+      background: linear-gradient(to right,
+          #ffffff,
+          #00D9FF);
+
+      -webkit-background-clip: text;
+
+      -webkit-text-fill-color: transparent;
+    }
+
+
+    .hero p {
+      max-width: 850px;
+
+      margin: auto;
+
+      color: #94A3B8;
+
+      line-height: 1.9;
+
+      font-size: 18px;
+    }
+
+
+    /* PROJECTS */
+
+    .projects-section {
+      padding: 0 8% 120px;
+    }
+
+
+    .projects-grid {
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 35px;
+    }
+
+
+    /* CARD */
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.03);
+
+      border: 1px solid rgba(255, 255, 255, 0.05);
+
+      border-radius: 32px;
+
+      overflow: hidden;
+
+      transition: 0.4s;
+    }
+
+
+    .project-card:hover {
+      transform: translateY(-10px);
+
+      border-color: #00D9FF;
+
+      box-shadow: 0 18px 40px rgba(0, 217, 255, 0.10);
+    }
+
+
+    /* IMAGE */
+
+    .project-image {
+      height: 260px;
+
+      overflow: hidden;
+    }
+
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition: 0.5s;
+    }
+
+
+    .project-card:hover img {
+      transform: scale(1.05);
+    }
+
+
+    /* CONTENT */
+
+    .project-content {
+      padding: 38px;
+    }
+
+
+    .project-type {
+      display: inline-block;
+
+      padding: 8px 18px;
+
+      border-radius: 30px;
+
+      background: rgba(0, 217, 255, 0.1);
+
+      border: 1px solid rgba(0, 217, 255, 0.2);
+
+      color: #00D9FF;
+
+      margin-bottom: 24px;
+
+      font-size: 14px;
+    }
+
+
+    .project-content h2 {
+      font-size: 34px;
+
+      margin-bottom: 22px;
+    }
+
+
+    .project-content p {
+      color: #94A3B8;
+
+      line-height: 1.9;
+
+      margin-bottom: 30px;
+    }
+
+
+    /* FEATURES */
+
+    .features {
+      margin-bottom: 35px;
+    }
+
+
+    .features li {
+      list-style: none;
+
+      margin-bottom: 16px;
+
+      display: flex;
+      align-items: center;
+
+      gap: 12px;
+
+      color: #CBD5E1;
+    }
+
+
+    .features i {
+      color: #00D9FF;
+    }
+
+
+    /* TAGS */
+
+    .tags {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+
+      margin-bottom: 35px;
+    }
+
+
+    .tags span {
+      padding: 10px 18px;
+
+      border-radius: 30px;
+
+      background: rgba(255, 255, 255, 0.04);
+
+      border: 1px solid rgba(255, 255, 255, 0.08);
+
+      color: #CBD5E1;
+
+      font-size: 14px;
+    }
+
+
+    /* BUTTONS */
+
+    .buttons {
+      display: flex;
+
+      gap: 16px;
+    }
+
+
+    .primary-btn,
+    .secondary-btn {
+      flex: 1;
+
+      padding: 16px;
+
+      border-radius: 16px;
+
+      font-size: 15px;
+
+      font-weight: 600;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+    }
+
+
+    .primary-btn {
+      border: none;
+
+      background: #00D9FF;
+    }
+
+
+    .secondary-btn {
+      background: transparent;
+
+      border: 1px solid #00D9FF;
+
+      color: white;
+    }
+
+
+    .primary-btn:hover,
+    .secondary-btn:hover {
+      transform: translateY(-4px);
+
+      box-shadow: 0 10px 25px rgba(0, 217, 255, 0.18);
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+      padding: 55px 8%;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+      text-align: center;
+    }
+
+
+    .footer h3 {
+      font-size: 30px;
+
+      margin-bottom: 15px;
+    }
+
+
+    .footer p {
+      color: #94A3B8;
+    }
+
+
+    /* LIGHT MODE */
+
+    body.light-mode {
+      background: #F8FAFC;
+
+      color: #0F172A;
+    }
+
+
+    body.light-mode .navbar {
+      background: rgba(255, 255, 255, 0.8);
+
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+
+    body.light-mode .project-card {
+      background: white;
+
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+
+    body.light-mode .project-content p,
+    body.light-mode .footer p {
+      color: #475569;
+    }
+
+
+    body.light-mode .features li {
+      color: #334155;
+    }
+
+
+    body.light-mode .tags span {
+      color: #334155;
+    }
+
+
+    body.light-mode .secondary-btn {
+      color: #0F172A;
+    }
+
+
+    body.light-mode #theme-toggle {
+      color: #0F172A;
+    }
+
+
+    /* RESPONSIVE */
+
+    @media(max-width:1000px) {
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+
+    @media(max-width:768px) {
+
+      .navbar {
+        flex-direction: column;
+
+        gap: 20px;
+      }
+
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+
+      .buttons {
+        flex-direction: column;
+      }
+
+    }
+
+
+    @media(max-width:500px) {
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+
+      .project-content {
+        padding: 30px;
+      }
+
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+  <!-- NAVBAR -->
+
+  <nav class="navbar">
+
+    <div class="logo">
+      SA
+    </div>
+
+
+    <div class="nav-right">
+
+      <button id="theme-toggle">
+        🌙
+      </button>
+
+
+      <button class="back-btn" onclick="window.location.href='index.html#projects'">
+
+        Back To Projects
+
+      </button>
+
+    </div>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <span class="hero-badge">
+      QA ENGINEERING PROJECTS
+    </span>
+
+
+    <h1>
+      Professional QA Projects Portfolio
+    </h1>
+
+
+    <p>
+      A collection of QA engineering,
+      API testing, automation learning,
+      AI testing, and software quality assurance projects
+      focused on real-world testing workflows,
+      bug reporting, validation strategies,
+      and quality-focused thinking.
+    </p>
+
+  </section>
+
+
+  <!-- PROJECTS -->
+
+  <section class="projects-section">
+
+    <div class="projects-grid">
+
+
+      <!-- PROJECT 1 -->
+
+      <div class="project-card">
+
+        <div class="project-image">
+
+          <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=1400&auto=format&fit=crop"
+            alt="API Testing">
+
+        </div>
+
+
+        <div class="project-content">
+
+          <span class="project-type">
+            API TESTING
+          </span>
+
+
+          <h2>
+            API Testing Collection
+          </h2>
+
+
+          <p>
+            Professional API testing project
+            focused on endpoint validation,
+            token authentication,
+            response verification,
+            and edge-case testing using Postman.
+          </p>
+
+
+          <ul class="features">
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              GET, POST, PUT, DELETE testing
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              JSON response validation
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Authentication testing
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Edge-case scenarios
+            </li>
+
+          </ul>
+
+
+          <div class="tags">
+
+            <span>Postman</span>
+            <span>REST API</span>
+            <span>JSON</span>
+            <span>QA</span>
+
+          </div>
+
+
+          <div class="buttons">
+
+            <button class="primary-btn" onclick="window.location.href='project-api-testing.html'">
+
+              View Project
+
+            </button>
+
+
+            <button class="secondary-btn">
+
+              GitHub Repo
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- PROJECT 2 -->
+
+      <div class="project-card">
+
+        <div class="project-image">
+
+          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1400&auto=format&fit=crop"
+            alt="Automation Testing">
+
+        </div>
+
+
+        <div class="project-content">
+
+          <span class="project-type">
+            AUTOMATION TESTING
+          </span>
+
+
+          <h2>
+            Playwright Automation
+          </h2>
+
+
+          <p>
+            UI automation learning project
+            using Playwright and JavaScript
+            focused on workflow automation,
+            form validation,
+            and end-to-end testing basics.
+          </p>
+
+
+          <ul class="features">
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Login automation
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              UI validation testing
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              End-to-end flow testing
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Form validation checks
+            </li>
+
+          </ul>
+
+
+          <div class="tags">
+
+            <span>Playwright</span>
+            <span>JavaScript</span>
+            <span>Automation</span>
+            <span>QA</span>
+
+          </div>
+
+
+          <div class="buttons">
+
+
+            <button class="primary-btn" onclick="window.location.href='project-automation-testing.html'">
+
+              View Project
+
+            </button>
+
+
+            <button class="secondary-btn">
+
+              GitHub Repo
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- PROJECT 3 -->
+
+      <div class="project-card">
+
+        <div class="project-image">
+
+          <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1400&auto=format&fit=crop"
+            alt="AI Testing">
+
+        </div>
+
+
+        <div class="project-content">
+
+          <span class="project-type">
+            AI TESTING
+          </span>
+
+
+          <h2>
+            AI Chatbot Testing
+          </h2>
+
+
+          <p>
+            AI chatbot testing project
+            focused on prompt validation,
+            hallucination testing,
+            response consistency,
+            and conversational edge cases.
+          </p>
+
+
+          <ul class="features">
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Prompt testing
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Response validation
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Hallucination checks
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Context retention testing
+            </li>
+
+          </ul>
+
+
+          <div class="tags">
+
+            <span>AI Testing</span>
+            <span>Prompt QA</span>
+            <span>Edge Cases</span>
+            <span>QA</span>
+
+          </div>
+
+
+          <div class="buttons">
+
+            <button class="primary-btn" onclick="window.location.href='project-project-aichatbot-testing.html'">
+
+              View Project
+
+            </button>
+
+
+            <button class="secondary-btn">
+
+              GitHub Repo
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- PROJECT 4 -->
+
+      <div class="project-card">
+
+        <div class="project-image">
+
+          <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1400&auto=format&fit=crop"
+            alt="Bug Reporting">
+
+        </div>
+
+
+        <div class="project-content">
+
+          <span class="project-type">
+            BUG REPORTING
+          </span>
+
+
+          <h2>
+            Bug Report Samples
+          </h2>
+
+
+          <p>
+            Structured bug reporting portfolio
+            demonstrating issue tracking,
+            severity analysis,
+            expected vs actual results,
+            and QA documentation practices.
+          </p>
+
+
+          <ul class="features">
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Severity & priority analysis
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Reproduction steps
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Screenshot documentation
+            </li>
+
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Professional QA reporting
+            </li>
+
+          </ul>
+
+
+          <div class="tags">
+
+            <span>Bug Tracking</span>
+            <span>Jira</span>
+            <span>Linear</span>
+            <span>QA</span>
+
+          </div>
+
+
+          <div class="buttons">
+
+
+            <button class="primary-btn" onclick="window.location.href='project-bug-report.html'">
+
+              View Project
+
+            </button>
+
+            <button class="secondary-btn">
+
+              GitHub Repo
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+
+    <h3>
+      Md Shawon Ahmed
+    </h3>
+
+
+    <p>
+      QA Engineer | API Testing | Automation Learning | AI Testing
+    </p>
+
+  </footer>
+
+
+  <!-- SCRIPT -->
+
+  <script>
+
+    const themeToggle =
+      document.getElementById("theme-toggle");
+
+
+    themeToggle.addEventListener("click", () => {
+
+      document.body.classList.toggle("light-mode");
+
+
+      if (document.body.classList.contains("light-mode")) {
+
+        themeToggle.innerHTML = "☀️";
+
+      }
+
+      else {
+
+        themeToggle.innerHTML = "🌙";
+
+      }
+
+    });
+
+  </script>
+
+
+</body>
+
+</html>
