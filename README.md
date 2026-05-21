@@ -14,7 +14,7 @@ Professional QA Engineer portfolio showcasing:
 
 ## 🌐 Live Portfolio
 
-https://shawon-sqa.github.io/
+https://shawon-sqa.github.io-portfolio-/
 
 ---
 
