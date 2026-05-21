@@ -207,3 +207,66 @@ setTimeout(() => {
     });
 
 });
+
+/* ===================================
+   MOBILE MENU
+=================================== */
+
+const menuToggle =
+document.getElementById("menu-toggle");
+
+const navLinks =
+document.querySelector(".nav-links");
+
+const backdrop =
+document.getElementById("mobile-backdrop");
+
+const mobileClose =
+document.getElementById("mobile-close");
+
+
+/* OPEN MENU */
+
+menuToggle.addEventListener("click", () => {
+
+    navLinks.classList.add("active");
+
+    backdrop.classList.add("active");
+
+});
+
+
+/* CLOSE MENU */
+
+function closeMobileMenu(){
+
+    navLinks.classList.remove("active");
+
+    backdrop.classList.remove("active");
+}
+
+
+/* BACKDROP CLICK */
+
+backdrop.addEventListener("click", closeMobileMenu);
+
+
+/* CROSS BUTTON CLICK */
+
+mobileClose.addEventListener("click", closeMobileMenu);
+
+
+/* AUTO CLOSE WHEN CLICK LINK */
+
+document.querySelectorAll(".nav-links a")
+
+.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        closeMobileMenu();
+
+    });
+
+});
+
