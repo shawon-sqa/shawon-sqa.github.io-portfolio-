@@ -1,3 +1,19 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -4854,3 +4870,11 @@ body.light-mode .menu-toggle i {
 body.light-mode .menu-toggle.active i {
     color: #111;
 }
+@media (min-width: 769px){
+
+    .mobile-close{
+        display: none !important;
+    }
+
+}
+
