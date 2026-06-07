@@ -270,3 +270,39 @@ document.querySelectorAll(".nav-links a")
 
 });
 
+/* ===================================
+   SHOW MORE CERTIFICATES
+=================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const showCertBtn =
+    document.getElementById("show-cert-btn");
+
+    const certGrid =
+    document.querySelector(".certificate-grid");
+
+    if(showCertBtn){
+
+        showCertBtn.addEventListener("click", () => {
+
+            certGrid.classList.toggle("show-all");
+
+            if(certGrid.classList.contains("show-all")){
+
+                showCertBtn.innerText = "Show Less";
+
+            }
+
+            else{
+
+                showCertBtn.innerText = "See More";
+
+            }
+
+        });
+
+    }
+
+});
+

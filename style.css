@@ -1942,7 +1942,40 @@ body::before {
 
     padding: 0 8% 100px;
 }
+/* =========================
+   MOBILE RESPONSIVE FIX
+========================= */
 
+@media (max-width: 768px){
+
+    .cert-test-section{
+        flex-direction: column;
+        gap: 25px;
+        padding: 20px;
+    }
+
+    .certificate-section,
+    .testimonial-section{
+        width: 100%;
+    }
+
+    .certificate-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .certificate-card img{
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .testimonial-card{
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+}
 
 /* COMMON BOX */
 
@@ -4878,3 +4911,488 @@ body.light-mode .menu-toggle.active i {
 
 }
 
+/* ===================================
+   CERTIFICATE & TESTIMONIAL RESPONSIVE
+=================================== */
+
+.cert-test-section{
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.certificate-section,
+.testimonial-section{
+    flex: 1 1 400px;
+    width: 100%;
+    min-width: 0;
+}
+
+
+/* TOP AREA */
+
+.certificate-top,
+.testimonial-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+
+/* TITLE FIX */
+
+.certificate-top h2,
+.testimonial-top h2{
+    font-size: 32px;
+    line-height: 1.3;
+    word-break: break-word;
+}
+
+
+/* BUTTON FIX */
+
+.view-all-btn{
+    white-space: nowrap;
+}
+
+
+/* CERTIFICATE GRID */
+
+.certificate-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+    gap: 20px;
+}
+
+
+/* CARD IMAGE */
+
+.certificate-card img{
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+}
+
+
+/* TESTIMONIAL CARD */
+
+.testimonial-card{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* USER AREA */
+
+.testimonial-user{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.testimonial-user h4{
+    word-break: break-word;
+}
+
+
+/* TABLET */
+
+@media(max-width:992px){
+
+    .cert-test-section{
+        flex-direction: column;
+    }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .cert-test-section{
+        padding: 20px;
+        gap: 25px;
+    }
+
+    .certificate-top,
+    .testimonial-top{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .certificate-top h2,
+    .testimonial-top h2{
+        font-size: 26px;
+    }
+
+    .view-all-btn{
+        width: 100%;
+        text-align: center;
+    }
+
+    .certificate-grid{
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .testimonial-card{
+        padding: 20px;
+    }
+
+}
+
+
+/* SMALL MOBILE */
+
+@media(max-width:480px){
+
+    .certificate-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .certificate-top h2,
+    .testimonial-top h2{
+        font-size: 22px;
+    }
+
+}
+
+/* ===================================
+   MOBILE CERTIFICATE FIX
+=================================== */
+
+@media(max-width:768px){
+
+    /* TITLE CENTER */
+
+    .certificate-top,
+    .testimonial-top{
+        align-items: center;
+        text-align: center;
+    }
+
+    .certificate-top h2,
+    .testimonial-top h2{
+        width: 100%;
+        text-align: center;
+    }
+
+    .view-all-btn{
+        margin: auto;
+    }
+
+    /* ONLY 3 CARD SHOW */
+/* HIDE EXTRA CARD */
+
+@media(max-width:768px){
+
+    .certificate-card.hide-mobile{
+        display: none;
+    }
+
+    .certificate-grid.show-all 
+    .certificate-card.hide-mobile{
+        display: block;
+    }
+
+}
+
+/* =====================================
+FINAL MOBILE NAVBAR FIX
+===================================== */
+
+@media (max-width: 900px){
+
+/* NAVBAR */
+.navbar{
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LEFT */
+.nav-left{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* MENU ICON */
+.menu-toggle{
+    display: flex !important;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.08);
+}
+
+/* LIGHT MODE MENU ICON */
+body.light-mode .menu-toggle{
+    background: #ffffff;
+    border: 1px solid #ddd;
+}
+
+.menu-toggle i{
+    color: #fff;
+    font-size: 20px;
+}
+
+body.light-mode .menu-toggle i{
+    color: #111;
+}
+
+/* HIDE DOWNLOAD CV */
+.nav-right .cv-btn{
+    display: none !important;
+}
+
+/* MOBILE MENU */
+.nav-links{
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 280px;
+    height: 100vh;
+    background: #0f172a;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 90px 25px;
+    gap: 20px;
+    transition: 0.4s ease;
+    z-index: 9999;
+}
+
+body.light-mode .nav-links{
+    background: #ffffff;
+}
+
+/* ACTIVE MENU */
+.nav-links.active{
+    left: 0;
+}
+
+/* LINKS */
+.nav-links li{
+    width: 100%;
+}
+
+.nav-links li a{
+    display: block;
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 10px;
+    color: white;
+    font-size: 17px;
+}
+
+body.light-mode .nav-links li a{
+    color: #111;
+}
+
+/* CLOSE BUTTON */
+.mobile-close{
+    display: block;
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
+
+body.light-mode .mobile-close{
+    color: #111;
+}
+
+/* BACKDROP */
+.mobile-backdrop{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: 999;
+}
+
+.mobile-backdrop.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+}
+
+/* DESKTOP FIX */
+@media (min-width: 901px){
+
+.mobile-close{
+    display: none !important;
+}
+
+.menu-toggle{
+    display: none !important;
+}
+
+.nav-right .cv-btn{
+    display: flex !important;
+}
+
+}}
+
+/* ===================================
+   PROJECT TITLE RESPONSIVE FIX
+=================================== */
+
+@media (max-width: 768px){
+
+    .project-top{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .project-top h2{
+        width: 100%;
+        font-size: 24px;
+        line-height: 1.3;
+        margin: 0;
+    }
+
+    .project-btn{
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+}
+/* BLOG SECTION MOBILE FIX */
+
+@media (max-width: 768px){
+
+    .blog-top{
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 12px;
+
+        text-align: center;
+    }
+
+    .blog-top h2{
+
+        font-size: 28px;
+
+        line-height: 1.3;
+
+        margin: 0;
+    }
+
+    .blog-btn{
+
+        width: fit-content;
+
+        padding: 10px 20px;
+
+        font-size: 14px;
+    }
+
+}
+/* ===================================
+   FOOTER PROFESSIONAL RESPONSIVE
+=================================== */
+
+.footer{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 30px 40px;
+
+    border-top: 1px solid rgba(255,255,255,0.1);
+
+    text-align: center;
+}
+
+.footer-left{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-left h2{
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #6c63ff;
+
+    color: #fff;
+}
+
+.footer-left h4{
+    margin-bottom: 4px;
+}
+
+.footer-left p{
+    opacity: .7;
+    font-size: 14px;
+}
+
+.footer-center{
+
+    font-size: 14px;
+    opacity: .8;
+}
+
+.footer-right{
+
+    font-size: 14px;
+    opacity: .8;
+}
+@media (max-width: 768px){
+
+    .footer{
+
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 30px 20px;
+    }
+
+    .footer-left{
+
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .footer-center,
+    .footer-right{
+
+        font-size: 13px;
+    }
+
+}
