@@ -492,7 +492,20 @@ body::before {
   box-shadow: 0 10px 30px rgba(0, 217, 255, 0.15);
 }
 
+@media (max-width: 768px){
 
+    .social-icons{
+
+        display: flex;
+
+        justify-content: center;
+
+        flex-wrap: nowrap;
+
+        gap: 8px;
+    }
+
+}
 /* RIGHT SIDE */
 
 .hero-right {
@@ -5393,6 +5406,30 @@ body.light-mode .mobile-close{
     .footer-right{
 
         font-size: 13px;
+    }
+
+}
+
+@media (max-width: 768px){
+
+    .icon-1{
+        top: 20px !important;
+        left: -20px !important;
+    }
+
+    .icon-2{
+        top: 120px !important;
+        left: -30px !important;
+    }
+
+    .icon-3{
+        top: 40px !important;
+        right: -20px !important;
+    }
+
+    .icon-4{
+        top: 150px !important;
+        right: -30px !important;
     }
 
 }
