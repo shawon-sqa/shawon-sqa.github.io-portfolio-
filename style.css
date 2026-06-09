@@ -524,8 +524,8 @@ body::before {
 /* PROFILE */
 
 .profile-circle {
-  width: 520px;
-  height: 520px;
+  width: 620px;
+  height: 620px;
 
   border-radius: 50%;
 
@@ -545,10 +545,10 @@ body::before {
 }
 
 
-.profile-circle img {
-  width: 100%;
-  max-width: 460px;
-
+.profile-circle img{
+    width: 620px;
+    height: 620px;
+    object-fit: cover;
 }
 
 
@@ -5430,6 +5430,74 @@ body.light-mode .mobile-close{
     .icon-4{
         top: 150px !important;
         right: -30px !important;
+    }
+
+}
+@media (max-width: 768px){
+
+    .profile-circle img{
+
+        width: 340px;
+        height: 340px;
+
+    }
+
+}
+.mobile-cv-btn{
+    display: none;
+}
+
+@media (max-width: 768px){
+
+    .mobile-cv-btn{
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 8px;
+
+        margin-top: 12px;
+        margin-bottom: 25px;
+
+        padding: 12px 20px;
+
+        background: #00D9FF;
+        color: #000;
+
+        border-radius: 10px;
+
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+}
+
+.mobile-cv-btn{
+    display: none;
+}
+
+@media (max-width: 768px){
+
+    .mobile-cv-btn{
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 8px;
+
+        margin-top: 16px; /* Contact Me button er same gap */
+
+        padding: 12px 20px;
+
+        background: #00D9FF;
+        color: #000;
+
+        border-radius: 10px;
+
+        text-decoration: none;
+        font-weight: 600;
     }
 
 }
