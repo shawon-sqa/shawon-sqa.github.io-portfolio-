@@ -306,3 +306,89 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+/* ==========================
+VIDEO CV
+========================== */
+
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+
+const videoBtn =
+document.getElementById("videoBtn");
+
+
+const videoModal =
+document.getElementById("videoModal");
+
+
+const closeVideo =
+document.getElementById("closeVideo");
+
+
+const cvVideo =
+document.getElementById("cvVideo");
+
+
+
+if(videoBtn){
+
+
+videoBtn.addEventListener("click",()=>{
+
+
+videoModal.classList.add("show");
+
+
+cvVideo.play();
+
+
+});
+
+
+}
+
+
+
+if(closeVideo){
+
+
+closeVideo.addEventListener("click",()=>{
+
+
+videoModal.classList.remove("show");
+
+
+cvVideo.pause();
+
+
+cvVideo.currentTime = 0;
+
+
+});
+
+
+}
+
+
+
+videoModal.addEventListener("click",(e)=>{
+
+
+if(e.target === videoModal){
+
+
+videoModal.classList.remove("show");
+
+
+cvVideo.pause();
+
+
+}
+
+
+});
+
+
+
+});
