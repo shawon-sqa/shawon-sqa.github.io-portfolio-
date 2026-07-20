@@ -5726,3 +5726,373 @@ top:-12px;
 }
 
 }
+
+/* =========================================
+   EXPERIENCE SECTION UPDATE
+========================================= */
+
+.experience-heading {
+    text-align: center;
+}
+
+.current-experience-card {
+    position: relative;
+}
+
+.profile-trigger {
+    border: none;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.profile-trigger .profile-image {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-trigger:hover .profile-image {
+    transform: scale(1.08);
+}
+
+.role-summary {
+    margin-top: 26px;
+}
+
+.role-label {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    color: #00a8cc;
+}
+
+.qa-focus-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 14px 36px;
+    margin: 24px 0 28px;
+}
+
+.qa-focus-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.focus-icon {
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #00bfa6;
+    background: rgba(0, 191, 166, 0.10);
+    font-size: 9px;
+}
+
+.skills-tags span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.skills-tags span i {
+    font-size: 12px;
+    opacity: 0.85;
+}
+
+.working-badge span {
+    color: #00bfa6;
+    margin-right: 4px;
+}
+
+.previous-badge {
+    opacity: 0.8;
+}
+
+
+/* =========================================
+   ROLE SNAPSHOT MODAL
+========================================= */
+
+.role-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(5, 12, 24, 0.65);
+    backdrop-filter: blur(9px);
+}
+
+.role-modal.active {
+    display: flex;
+}
+
+.role-modal-content {
+    position: relative;
+    width: min(420px, 100%);
+    padding: 34px;
+    text-align: center;
+    border-radius: 24px;
+    background: var(--card-bg, #ffffff);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
+    animation: roleModalIn 0.28s ease;
+}
+
+@keyframes roleModalIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 14px;
+    right: 17px;
+    border: none;
+    background: transparent;
+    color: inherit;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0.65;
+}
+
+.modal-close:hover {
+    opacity: 1;
+}
+
+.modal-profile img {
+    width: 88px;
+    height: 88px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #ffffff;
+    box-shadow: 0 8px 25px rgba(0, 174, 239, 0.22);
+}
+
+.modal-label {
+    display: block;
+    margin-top: 18px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #00a8cc;
+}
+
+.role-modal-content h3 {
+    margin: 8px 0 4px;
+}
+
+.modal-role {
+    margin: 0;
+    color: #00a8cc;
+    font-weight: 600;
+}
+
+.modal-company {
+    margin: 6px 0 22px;
+    opacity: 0.7;
+}
+
+.modal-focus-list {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.modal-focus-list div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: rgba(0, 174, 239, 0.06);
+    font-size: 13px;
+}
+
+.modal-focus-list i {
+    color: #00bfa6;
+}
+
+.modal-company-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #08bde8, #4263eb);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.modal-company-btn:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .qa-focus-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .experience-top {
+        align-items: flex-start;
+    }
+
+    .top-right {
+        margin-left: 10px;
+    }
+
+    .role-modal-content {
+        padding: 28px 22px;
+    }
+}
+
+
+@media (max-width: 520px) {
+
+    .experience-top {
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .top-right {
+        margin-left: 0;
+        align-items: flex-start;
+    }
+
+    .experience-date {
+        font-size: 12px;
+    }
+
+}
+/* =========================================
+   CLICKABLE PROFILE IMAGE
+========================================= */
+
+.modal-profile-trigger {
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-profile-trigger img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--card-bg, #ffffff);
+    box-shadow: 0 8px 25px rgba(0, 174, 239, 0.25);
+    transition: all 0.3s ease;
+}
+
+.modal-profile-trigger:hover img {
+    transform: scale(1.08);
+    box-shadow: 0 12px 35px rgba(0, 174, 239, 0.40);
+}
+
+.profile-click-hint {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #00a8cc;
+    opacity: 0.8;
+    transition: 0.3s ease;
+}
+
+.modal-profile-trigger:hover .profile-click-hint {
+    opacity: 1;
+}
+
+
+/* =========================================
+   MODAL TEXT VISIBILITY
+========================================= */
+
+.role-modal-content {
+    color: #172033;
+}
+
+.role-modal-content h3 {
+    color: #172033;
+}
+
+.modal-company {
+    color: #64748b;
+}
+
+.modal-focus-list div {
+    color: #334155;
+}
+
+.modal-focus-list i {
+    color: #00bfa6;
+}
+
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+body.dark-mode .role-modal-content,
+body.dark-theme .role-modal-content,
+[data-theme="dark"] .role-modal-content {
+    background: #111827;
+    color: #f8fafc;
+}
+
+body.dark-mode .role-modal-content h3,
+body.dark-theme .role-modal-content h3,
+[data-theme="dark"] .role-modal-content h3 {
+    color: #f8fafc;
+}
+
+body.dark-mode .modal-company,
+body.dark-theme .modal-company,
+[data-theme="dark"] .modal-company {
+    color: #cbd5e1;
+}
+
+body.dark-mode .modal-focus-list div,
+body.dark-theme .modal-focus-list div,
+[data-theme="dark"] .modal-focus-list div {
+    color: #f1f5f9;
+    background: rgba(56, 189, 248, 0.10);
+}
+
+body.dark-mode .modal-close,
+body.dark-theme .modal-close,
+[data-theme="dark"] .modal-close {
+    color: #f8fafc;
+}

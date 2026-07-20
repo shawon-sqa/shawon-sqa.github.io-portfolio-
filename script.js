@@ -392,3 +392,61 @@ cvVideo.pause();
 
 
 });
+
+/* =========================================
+   ROLE SNAPSHOT MODAL
+========================================= */
+
+function openRoleModal() {
+
+    const modal = document.getElementById("roleModal");
+
+    if (!modal) return;
+
+    modal.classList.add("active");
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+function closeRoleModal(event) {
+
+    const modal = document.getElementById("roleModal");
+
+    if (!modal) return;
+
+    if (
+        !event ||
+        event.target === modal
+    ) {
+
+        modal.classList.remove("active");
+
+        document.body.style.overflow = "";
+
+    }
+
+}
+
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        closeRoleModal();
+
+    }
+
+});
+function openRoleDetails() {
+
+    const modal = document.getElementById("roleModal");
+
+    if (!modal) return;
+
+    modal.classList.add("active");
+
+    document.body.style.overflow = "hidden";
+
+}
