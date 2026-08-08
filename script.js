@@ -450,3 +450,64 @@ function openRoleDetails() {
     document.body.style.overflow = "hidden";
 
 }
+
+/* ===================================
+   CASE STUDY VIDEO MODAL
+=================================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const caseVideoModal = document.getElementById('caseVideoModal');
+    const caseVideoPlayer = document.getElementById('caseVideoPlayer');
+
+    if (!caseVideoModal || !caseVideoPlayer) return;
+
+    window.openCaseVideo = function(videoPath){
+
+        caseVideoPlayer.src = videoPath;
+
+        caseVideoModal.classList.add('show');
+
+        document.body.style.overflow = 'hidden';
+
+        caseVideoPlayer.play();
+
+    };
+
+    window.closeCaseVideo = function(){
+
+        caseVideoModal.classList.remove('show');
+
+        caseVideoPlayer.pause();
+
+        caseVideoPlayer.currentTime = 0;
+
+        caseVideoPlayer.removeAttribute('src');
+
+        caseVideoPlayer.load();
+
+        document.body.style.overflow = '';
+
+    };
+
+    caseVideoModal.addEventListener('click', (e) => {
+
+        if (e.target === caseVideoModal) {
+
+            window.closeCaseVideo();
+
+        }
+
+    });
+
+    document.addEventListener('keydown', (e) => {
+
+        if (e.key === 'Escape' && caseVideoModal.classList.contains('show')) {
+
+            window.closeCaseVideo();
+
+        }
+
+    });
+
+});
